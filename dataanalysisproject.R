@@ -1,0 +1,11 @@
+data1<-as.data.frame(matches)
+data2<-as.data.frame(deliveries)
+names(data1) <- gsub(" ", "_", names(data1))
+names(data1) <- gsub(" ", "_", names(data2))
+data1$umpire3 <- NULL
+#print(names(data1))
+#print(names(data2))
+data1<-transform(data1,dl_applied=as.logical(dl_applied))
+print(data1)
+class(data1$dl_applied)
+write.csv(data1,file="writedata1.csv")
